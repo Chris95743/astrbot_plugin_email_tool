@@ -1,0 +1,6 @@
+name: astrbot_plugin_email_tool
+desc: 一个能让AI自主决定SMTP发送邮件的函数工具
+help: 提供调用SMTP邮件服务的函数工具
+version: v1.0.0
+author: Chris95743
+repo: https://github.com/Chris95743/astrbot_plugin_email_tool

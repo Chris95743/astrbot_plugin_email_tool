@@ -1,0 +1,67 @@
+{
+	"smtp_host": {
+		"description": "SMTP服务器主机名或IP",
+		"type": "string",
+		"hint": "例如 smtp.gmail.com 或企业邮服务器域名",
+		"default": ""
+	},
+	"smtp_port": {
+		"description": "SMTP服务器端口",
+		"type": "int",
+		"hint": "常见: 465(SSL), 587(STARTTLS), 25(明文/内网)",
+		"default": 465
+	},
+	"use_ssl": {
+		"description": "使用 SMTPS (SSL/TLS) 直连",
+		"type": "bool",
+		"default": true
+	},
+	"use_starttls": {
+		"description": "使用 STARTTLS 升级加密 (与 use_ssl 互斥)",
+		"type": "bool",
+		"default": false
+	},
+	"username": {
+		"description": "SMTP 登录用户名（可为空以匿名/白名单投递）",
+		"type": "string",
+		"default": ""
+	},
+	"password": {
+		"description": "SMTP 登录密码/授权码（若服务器要求登录）",
+		"type": "string",
+		"default": ""
+	},
+	"from_address": {
+		"description": "发件人邮箱地址",
+		"type": "string",
+		"hint": "例如 no-reply@yourdomain.com",
+		"default": ""
+	},
+	"from_display_name": {
+		"description": "发件人显示名称",
+		"type": "string",
+		"default": "AstrBot"
+	},
+	"allow_domains": {
+		"description": "允许投递的目标域名白名单（留空表示不限制）",
+		"type": "list",
+		"hint": "示例: [\"gmail.com\", \"yourcompany.com\"]",
+		"default": []
+	},
+	"dry_run": {
+		"description": "仅模拟发送，不真正连接SMTP（调试用）",
+		"type": "bool",
+		"default": false
+	},
+	"smtp_debug": {
+		"description": "输出 SMTP 会话调试日志（仅用于排障，含敏感信息，谨慎开启）",
+		"type": "bool",
+		"default": false
+	},
+	"send_interval_seconds": {
+		"description": "两次发送之间的最小间隔（秒）",
+		"type": "int",
+		"hint": "用于防止模型错误频繁调用，默认120秒",
+		"default": 120
+	}
+}
