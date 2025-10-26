@@ -10,7 +10,7 @@ astrbot_plugin_email_tool
 - 支持 SSL 直连或 STARTTLS
 - 可选域名白名单、Dry-run 调试
  - 可选 SMTP 调试日志（smtp_debug），排查拒收/鉴权问题
- - 发送间隔保护（send_interval_seconds，默认60秒）防止模型误触频繁发信
+ - 发送间隔保护（send_interval_seconds，默认120秒）防止模型误触频繁发信
 
 配置
 在 AstrBot WebUI -> 插件 -> 本插件配置 中填写下列项（见 `_conf_schema.json`）：
@@ -49,3 +49,4 @@ LLM 工具
 注意
 - 为了兼容多数邮件客户端，请尽量使用行内 CSS 的 HTML 模板。
 - 建议使用授权码而非明文密码；如需额外安全控制，可结合域名白名单。 
+
