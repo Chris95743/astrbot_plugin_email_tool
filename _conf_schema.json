@@ -63,5 +63,75 @@
 		"type": "int",
 		"hint": "用于防止模型错误频繁调用，默认120秒",
 		"default": 120
+	},
+	"enable_server_alerts": {
+		"description": "启用服务器状态报警（内存占用超过阈值时发送预警邮件）",
+		"type": "bool",
+		"default": false
+	},
+	"alert_recipients": {
+		"description": "报警收件人列表（邮箱）。可为数组或用逗号/分号/空格分隔的字符串",
+		"type": "list",
+		"default": []
+	},
+	"mem_threshold_percent": {
+		"description": "触发报警的内存占用阈值（百分比）",
+		"type": "int",
+		"default": 80
+	},
+	"check_interval_seconds": {
+		"description": "监控检查周期（秒）",
+		"type": "int",
+		"default": 30
+	},
+	"alert_cooldown_minutes": {
+		"description": "报警冷却时间（分钟），避免短时间内重复发送",
+		"type": "int",
+		"default": 30
+	},
+	"enable_napcat_monitor": {
+		"description": "启用 Napcat 掉线检测（参考 napcat-login-status-monitor-main 项目）",
+		"type": "bool",
+		"default": false
+	},
+	"napcat_base_url": {
+		"description": "Napcat 接口基础地址，如 http://127.0.0.1:6099",
+		"type": "string",
+		"default": ""
+	},
+	"napcat_token": {
+		"description": "Napcat 登录 Token（WebUI密码）。用于换取 Credential。与 napcat_credential 二选一",
+		"type": "string",
+		"default": ""
+	},
+	"napcat_credential": {
+		"description": "可选：直接提供 Napcat Credential（Base64），则跳过登录",
+		"type": "string",
+		"default": ""
+	},
+	"napcat_uin": {
+		"description": "可选：QQ 号，仅用于邮件展示头像或标识",
+		"type": "string",
+		"default": ""
+	},
+	"napcat_interval_seconds": {
+		"description": "Napcat 状态检查周期（秒）",
+		"type": "int",
+		"default": 60
+	},
+	"napcat_alert_recipients": {
+		"description": "Napcat 掉线告警收件人（数组或分隔字符串）",
+		"type": "list",
+		"default": []
+	},
+	"napcat_alert_cooldown_minutes": {
+		"description": "Napcat 掉线邮件冷却时间（分钟）",
+		"type": "int",
+		"default": 30
+	},
+	"napcat_allow_insecure": {
+		"description": "允许不安全连接（HTTP/自签名证书）。生产环境不建议启用",
+		"type": "bool",
+		"default": true
 	}
 }
