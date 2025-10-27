@@ -3,8 +3,8 @@ astrbot_plugin_email_tool
 
 让 LLM 自主调用 SMTP 工具发送精美 HTML 邮件，轻松将“对话结果”发送到指定邮箱中。
 
-特别感谢（本插件部分元素来自以下项目，感谢[大佬](https://github.com/Futureppo)开源）：
-[[猫猫监控]](https://github.com/Futureppo/napcat-login-status-monitor)一个用于监控 NapCat QQ)登录状态的安卓 App，支持掉线通知提醒。
+特别感谢（本插件部分元素来自以下项目，感谢 [大佬](https://github.com/Futureppo) 开源）：
+- [[猫猫监控]](https://github.com/Futureppo/napcat-login-status-monitor)一个用于监控 NapCat QQ)登录状态的安卓 App，支持掉线通知提醒。
 
 ## 功能亮点
 
@@ -94,4 +94,5 @@ astrbot_plugin_email_tool
 ---
 
 有任何使用建议，欢迎在仓库提 Issue 或 PR，一起把体验做得更顺手！
+
 
