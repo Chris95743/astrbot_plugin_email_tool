@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>服务器内存告警</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    /* 尽量只用于移动端的轻量适配；不包含任何模板占位符，避免与 str.format 冲突 */
+    @media only screen and (max-width: 480px) {
+      img.astrbot-logo { height: 18px !important; }
+      td.astrbot-logo-cell { padding-right: 6px !important; }
+      td.astrbot-title { font-size: 15px !important; }
+    }
+  </style>
+</head>
+<body style="margin:0; padding:24px; background:#f5f6fa; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; color:#1f1f1f;">
+  <div style="max-width:720px; margin:0 auto;">
+    <!-- Header with Logo -->
+    <div style="text-align:center; margin:0 0 16px;">
+      <table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 auto;">
+        <tr>
+          <td class="astrbot-logo-cell" style="padding:0;">
+            <img class="astrbot-logo" src="https://docs.astrbot.app/assets/logo_prod.C2s7tUW-.png" alt="AstrBot" style="height:36px; display:block;" height="36" />
+          </td>
+          <td class="astrbot-title" style="padding-left:8px; font-size:16px; font-weight:600; color:#1f1f1f; white-space:nowrap;">
+            AstrBot 服务器告警
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Card -->
+    <div style="background:#ffffff; border:1px solid #e8e8e8; border-radius:14px; box-shadow:0 2px 6px rgba(0,0,0,0.04); overflow:hidden;">
+      <!-- Title bar -->
+      <div style="padding:14px 18px; background:#fff1f0; border-bottom:1px solid #ffd6d6;">
+        <div style="font-size:18px; font-weight:700; color:#cf1322;">⚠️ 内存使用率 {mem_percent:.0f}% 超过阈值</div>
+        <div style="font-size:12px; color:#8c8c8c; margin-top:4px;">触发时间：{now}</div>
+      </div>
+
+      <!-- Content (with background image on cell) -->
+      <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%; border-collapse:collapse;">
+        <tr>
+          <td background="https://gal.gbkgov.cn/character/tired/dreamina_7559588230304222473_1760103828568_edge_no_bg.png" style="padding:0; background-repeat:no-repeat; background-position:right center; background-size:220px auto;">
+            <div style="background:rgba(255,255,255,0.90); padding:18px;">
+        
+        <!-- Highlight number + progress bar -->
+        <div style="margin:4px 0 16px;">
+          <div style="display:flex; align-items:center; gap:12px;">
+            <div style="font-size:32px; line-height:1; font-weight:800; color:#d4380d;">{mem_percent:.0f}%</div>
+            <div style="font-size:12px; color:#8c8c8c;">当前内存占用</div>
+          </div>
+          <!-- Progress bar (table-based for email client compatibility) -->
+          <div style="margin-top:10px;">
+            <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%; border-collapse:separate; border-spacing:0; background:#f5f5f5; border-radius:999px;">
+              <tr>
+                <td width="{mem_percent:.0f}%" style="background:#d4380d; height:12px; line-height:12px; font-size:0; border-radius:999px;">&nbsp;</td>
+                <td style="height:12px; line-height:12px; font-size:0;">&nbsp;</td>
+              </tr>
+            </table>
+          </div>
+          <div style="font-size:12px; color:#8c8c8c; margin-top:6px;">{mem_used_gb} GB / {mem_total_gb} GB</div>
+        </div>
+
+        <!-- Info table -->
+        <table role="presentation" cellpadding="0" cellspacing="0" style="width:100%; border-collapse:collapse;">
+          <tr>
+            <td style="width:33%; padding:8px 0; color:#8c8c8c;">服务器</td>
+            <td style="padding:8px 0; font-weight:600; color:#1f1f1f;">{server_name}</td>
+          </tr>
+          <tr>
+            <td style="width:33%; padding:8px 0; color:#8c8c8c;">系统</td>
+            <td style="padding:8px 0; font-weight:600; color:#1f1f1f;">{os_version}</td>
+          </tr>
+          <tr>
+            <td style="width:33%; padding:8px 0; color:#8c8c8c;">CPU 使用率</td>
+            <td style="padding:8px 0; font-weight:600; color:#1f1f1f;">{cpu_percent:.1f}%</td>
+          </tr>
+          <tr>
+            <td style="width:33%; padding:8px 0; color:#8c8c8c;">已运行</td>
+            <td style="padding:8px 0; font-weight:600; color:#1f1f1f;">{uptime_h} 小时 {uptime_m} 分钟</td>
+          </tr>
+        </table>
+
+        <!-- Divider -->
+        <div style="height:1px; background:#f0f0f0; margin:18px 0;"></div>
+
+        <!-- Meta -->
+        <div style="font-size:12px; color:#8c8c8c;">本邮件由 AstrBot 自动发送 • 请勿直接回复</div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Footer note -->
+    <div style="text-align:center; color:#bfbfbf; font-size:12px; margin-top:12px;">© AstrBot</div>
+  </div>
+</body>
+</html>
