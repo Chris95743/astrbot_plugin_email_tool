@@ -1,1 +1,2 @@
-# 本插件仅使用 Python 标准库（smtplib、email），无需额外依赖
+psutil>=5.9.0
+httpx>=0.27.0
