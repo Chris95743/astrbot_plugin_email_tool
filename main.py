@@ -147,6 +147,9 @@ class Main(star.Star):
 			msg["To"] = ", ".join(to_list)
 		if cc_list:
 			msg["Cc"] = ", ".join(cc_list)
+		# 注意：仅用于收件人聚合，发送时 SMTP 会在投递时去除 Bcc 头部（不会泄露给收件人）
+		if bcc_list:
+			msg["Bcc"] = ", ".join(bcc_list)
 
 		# 纯文本降级内容 + HTML 正文
 		msg.set_content("This is an HTML email. If you see this, your client is showing the plain-text fallback.")
@@ -592,11 +595,11 @@ class Main(star.Star):
 		"""使用插件配置的 SMTP 服务发送一封 HTML 邮件。
 
 		Args:
-			to(array): 收件人邮箱，可为字符串（支持逗号/分号/空格分隔）或字符串数组
+			to(string): 收件人邮箱，支持“逗号/分号/空格”分隔的多地址；也兼容数组输入
 			subject(string): 邮件主题
 			html_body(string): 邮件 HTML 正文，建议使用行内 CSS，兼容主流客户端，尽量使用精美的样式。
-			cc(array): 抄送人，可为字符串或数组（可选）
-			bcc(array): 密送人，可为字符串或数组（可选）
+			cc(string): 抄送人，支持分隔字符串；也兼容数组输入（可选）
+			bcc(string): 密送人，支持分隔字符串；也兼容数组输入（可选）
 		"""
 		# 读取配置
 		smtp_host = (self.config.get("smtp_host") or "").strip()
