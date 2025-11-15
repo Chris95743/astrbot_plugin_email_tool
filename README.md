@@ -43,6 +43,12 @@ astrbot_plugin_email_tool
 
 ---
 
+## Napcat 接口基础地址
+
+- 建议使用 http://公网IP:6099 这类的公网地址或者私网地址。
+
+---
+
 ## 配置项一览（与 `_conf_schema.json` 保持一致）
 
 - smtp_host(string)：SMTP 服务器主机名
@@ -94,5 +100,6 @@ astrbot_plugin_email_tool
 ---
 
 有任何使用建议，欢迎在仓库提 Issue 或 PR，一起把体验做得更顺手！
+
 
 
